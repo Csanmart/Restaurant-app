@@ -1,13 +1,14 @@
 const {Sequelize} = require('sequelize');
+import 'dotenv.config';
 
 const sequelize = new Sequelize(
-    "restaurante", 
-    "root", 
-    "",
+    process.env.DB, 
+    process.env.ROOT, 
+    process.env.PASSWORD,
     {
-        host: "localhost",
+        host: process.env.LOCAL,
         dialect: "mysql",
-        port: Number(3306),
+        port: Number(process.env.PORT),
         logging: false
     }
 );
